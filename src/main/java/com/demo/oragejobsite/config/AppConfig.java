@@ -6,8 +6,6 @@ import org.springframework.context.annotation.Configuration;
 
 import com.demo.oragejobsite.util.TokenProvider;
 
-
-
 @Configuration
 public class AppConfig {
 

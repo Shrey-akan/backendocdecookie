@@ -16,9 +16,7 @@ public class RefreshToken {
     private String username;
     private Date expiryDate;
     
-    
-    
-    
+   
 	public RefreshToken() {
 		super();
 		// TODO Auto-generated constructor stub

@@ -47,5 +47,4 @@ public String getAdminPass() {
 public void setAdminPass(String adminPass) {
 	this.adminPass = adminPass;
 }
-
 }
