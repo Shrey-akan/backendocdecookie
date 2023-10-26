@@ -26,7 +26,7 @@ public class RefreshTokenUtil {
                 .setSubject(username)
                 .setIssuedAt(now)
                 .setExpiration(expirationDate)
-                .signWith(SignatureAlgorithm.HS512, refreshSecret)
+                .signWith(SignatureAlgorithm.HS256, refreshSecret)
                 .compact();
     }
 

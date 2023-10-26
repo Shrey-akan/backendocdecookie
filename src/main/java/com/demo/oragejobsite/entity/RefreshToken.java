@@ -15,8 +15,6 @@ public class RefreshToken {
     private String tokenId;
     private String username;
     private Date expiryDate;
-    
-   
 	public RefreshToken() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -43,6 +41,7 @@ public class RefreshToken {
 	public String getUsername() {
 		return username;
 	}
+	
 	public void setUsername(String username) {
 		this.username = username;
 	}
@@ -55,7 +54,7 @@ public class RefreshToken {
 
     // Constructors, getters, setters
     
-    
+   
     
 }
 

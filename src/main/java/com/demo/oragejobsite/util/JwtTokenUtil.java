@@ -26,7 +26,7 @@ public class JwtTokenUtil {
                 .setSubject(username)
                 .setIssuedAt(now)
                 .setExpiration(expirationDate) // Set the expiration time
-                .signWith(SignatureAlgorithm.HS512, secret)
+                .signWith(SignatureAlgorithm.HS256, secret)
                 .compact();
     }
 
