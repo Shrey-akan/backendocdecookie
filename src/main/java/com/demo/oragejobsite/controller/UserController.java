@@ -113,7 +113,6 @@ public class UserController {
 
 	        // Check if the userName already exists in the database
 	        User existingUser = ud.findByUserName(c1.getUserName());
-
 	        if (existingUser != null) {
 	            // User with the same userName already exists, return a conflict response
 	            return ResponseEntity.status(HttpStatus.CONFLICT).body("User with this username already exists");
