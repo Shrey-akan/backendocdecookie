@@ -26,18 +26,21 @@ public class RefreshToken {
 		this.username = username;
 		this.expiryDate = expiryDate;
 	}
+	
 	public Long getId() {
 		return id;
 	}
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
 	public String getTokenId() {
 		return tokenId;
 	}
 	public void setTokenId(String tokenId) {
 		this.tokenId = tokenId;
 	}
+	
 	public String getUsername() {
 		return username;
 	}
@@ -53,8 +56,6 @@ public class RefreshToken {
 	}
 
     // Constructors, getters, setters
-    
    
-    
 }
 

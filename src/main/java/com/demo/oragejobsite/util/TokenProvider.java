@@ -106,7 +106,42 @@ public class TokenProvider {
     public void setRefreshTokenSecret(SecretKey refreshTokenSecret) {
         this.jwtSecret = refreshTokenSecret;
     }
+    
+    
+    public boolean isAccessTokenValid(String accessToken) {
+        try {
+            // Parse the access token
+            Jwts.parserBuilder()
+                .setSigningKey(jwtSecret)
+                .build()
+                .parseClaimsJws(accessToken);
 
+            // If parsing is successful, the token is valid
+            return true;
+        } catch (Exception e) {
+            // Token is invalid or there was an error parsing it
+            return false;
+        }
+    }
+    
+    public boolean isRefreshTokenValid(String refreshToken) {
+        try {
+            Claims claims = Jwts.parserBuilder()
+                .setSigningKey(jwtSecret)
+                .build()
+                .parseClaimsJws(refreshToken)
+                .getBody();
+
+            // Check if the token has not expired
+            if (!claims.getExpiration().before(new Date())) {
+                return true; // Refresh token is valid
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return false; // Refresh token is invalid
+    }
     // You can add more methods or setters as needed.
 }
 

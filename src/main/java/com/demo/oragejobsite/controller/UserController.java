@@ -284,42 +284,6 @@ public ResponseEntity<?> logincheck(@RequestBody User c12, HttpServletResponse r
 }
 
 
-@CrossOrigin(origins = "http://localhost:4200")
-@PostMapping("/refreshToken")
-public ResponseEntity<?> refreshToken(@RequestBody Map<String, String> requestMap) {
-    try {
-        // Get the refreshToken value from the requestMap
-        String refreshToken = requestMap.get("refreshToken");
-
-        // Log the received refresh token
-        System.out.println("Received Refresh Token: " + refreshToken);
-
-        if (refreshToken == null || refreshToken.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid refresh token");
-        }
-
-        // Extract the username from the refresh token
-        String username = tokenProvider.validateAndExtractUsernameFromRefreshToken(refreshToken);
-
-        if (username != null) {
-            // Generate a new access token
-            String newAccessToken = tokenProvider.generateAccessToken(username);
-
-            // Return the new access token
-            Map<String, Object> responseBody = new HashMap<>();
-            responseBody.put("accessToken", newAccessToken);
-
-            return ResponseEntity.ok(responseBody);
-        } else {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid refresh token");
-        }
-    } catch (Exception e) {
-        e.printStackTrace(); // Log the exception for debugging
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
-    }
-}
-
-
 
 @CrossOrigin(origins="http://localhost:4200")
 @PostMapping("/logincheckgmail")
